@@ -50,6 +50,19 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   }
 });
 
+chrome.tabs.onActivated.addListener((activeInfo) => {
+  chrome.tabs.get(activeInfo.tabId, (tab) => {
+    const domain = getDomain(tab.url);
+    if (domain && domainStatus[domain]) {
+      updateIcon(tab.id, true);
+      chrome.tabs.sendMessage(tab.id, { command: "start" });
+    } else {
+      updateIcon(tab.id, false);
+      chrome.tabs.sendMessage(tab.id, { command: "stop" });
+    }
+  });
+});
+
 function updateIcon(tabId, isActive) {
   const iconPath = isActive ? "icons/active16.png" : "icons/icon16.png";
   chrome.action.setIcon({
