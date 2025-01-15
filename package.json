@@ -1,6 +1,6 @@
 {
   "name": "composing-keydown-handler-extension",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The Keydown Event Handler is a lightweight Chrome extension designed to enhance user experience by managing keydown events in the browser, specifically targeting the 'Enter' key during text composition. This feature is particularly useful for users who work with complex input methods or need refined control over how key events are handled in web applications.",
   "main": "background.js",
   "scripts": {
