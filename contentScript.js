@@ -8,7 +8,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 });
 
 function handleKeydown(event) {
-  if (event.key === 'Enter' && event.isComposing) {
+  if (event.key === 'Enter' && (event.isComposing || e.key === 'Process' || e.keyCode === 229)) {
     event.stopPropagation();
   }
 }
